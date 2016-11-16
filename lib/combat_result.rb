@@ -2,10 +2,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module TreasureKind
-    ARMOR=:armor
-    HELMET=:helmet
-    SHOES=:shoes
-    ONEHAND=:onehand
-    BOTHHANDS=:bothhands
+module CombatResult
+    WINGAME=:wingame
+    WIN=:win
+    LOSE=:lose
 end
