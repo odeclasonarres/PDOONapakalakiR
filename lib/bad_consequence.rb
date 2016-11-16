@@ -10,8 +10,8 @@ class BadConsequence
   @@MAXTREASURES=10
   
   attr_reader :MAXTREASURES, :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificHiddenTreasures, :specificVisibleTreasures
-  def initialize(aText, someLevels=0, someVisibleTreasures=0, someHiddenTreasures=0,someSpecificVisibleTreasures=Array.new, someSpecificHiddenTreasures, death) 
-    @text = text
+  def initialize(aText, someLevels=0, someVisibleTreasures=0, someHiddenTreasures=0,someSpecificVisibleTreasures=Array.new, someSpecificHiddenTreasures=Array.new, death=false) 
+    @text = aText
     @levels = someLevels
     @nVisibleTreasures = someVisibleTreasures
     @nHiddenTreasures = someHiddenTreasures
@@ -29,8 +29,7 @@ class BadConsequence
   end
   
   def BadConsequence.newDeath(aText)
-    @text=aText
-    @death=true
+    new(aText, 0, 0, 0, Array.new, Array.new, true)
   end
   
   def isEmpty
@@ -42,18 +41,23 @@ class BadConsequence
   end
   
   def getLevels
+    @levels
   end  
     
   def getNVisibleTreasures
+    @nVisibleTreasures
   end
   
   def getNHiddenTreasures
+    @nHiddenTreasures
   end
   
   def getSpecificVisibleTreasures
+    @specificVisibleTreasures
   end
   
   def getSpecificHiddenTreasures
+    @specificHiddenTreasures
   end
   
   def substracVisibleTreasure(t)
