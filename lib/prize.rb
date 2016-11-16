@@ -16,7 +16,7 @@ class Prize
   end
   
   def getLevels
-    @level
+    return @levels
   end
   
   def to_S

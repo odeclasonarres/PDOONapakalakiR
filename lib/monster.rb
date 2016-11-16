@@ -35,7 +35,7 @@ class Monster
   end
   
   def to_S
-    "Monster{ nombre=  #{@name} ; \n nivel = #{@combatLevel}; \n Premio=#{@prize.to_S};
-     \n Mal rollo=#{@bad.to_S} }"
+    return "Monster{ nombre=  #{@name} ; \n nivel = #{@combatLevel}; \n Premio=#{@prize.to_S};
+     \n Mal rollo=#{@badConsequence.to_S} }"
   end
 end
