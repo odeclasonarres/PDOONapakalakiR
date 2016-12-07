@@ -34,7 +34,7 @@ class Monster
     @prize.getTreasures
   end
   
-  def to_S
+  def to_s
     return "Monster{ nombre=  #{@name} ; \n nivel = #{@combatLevel}; \n Premio=#{@prize.to_S};
      \n Mal rollo=#{@badConsequence.to_S} }"
   end

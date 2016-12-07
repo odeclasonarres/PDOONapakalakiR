@@ -15,51 +15,126 @@ class Napakalaki
   
   attr_accessor :currentPlayer, :players, :dealer, :currentMonster
     
+  
   def initialize
-    @players=Array.new
+    
   end
   
-  private
-  def initPlayers()
+  
+  def initPlayers(names)
+    names.each do |n|
+      @players << Player.new(n)
+    end
   end
   
-  private
-  def nextPlayer()
+  
+  def nextPlayer
+    total_players = @players.length 
+
+    if (@currentPlayer == nil) then  
+      next_index = rand(total_players)    
+    else           
+      current_player_index = @players.index(@currentPlayer)   
+      if (current_player_index == total_players) then
+        next_index = 0
+      else
+        next_index = current_player_index + 1
+      end
+
+    end
+
+    @currentPlayer = @players.at(next_index)
+
+    return @currentPlayer
   end
   
-  private
-  def nextTurnAllowed()
+  
+  def nextTurnIsAllowed
+    if @currentPlayer == nil then
+      allowed = true
+    else
+      allowed = @currentPlayer.validState
+    end
+    return allowed
   end
   
-  private
-  def setEnemies()
+  def setEnemies
+     
+    @players.each do |p|
+      x = rand(@players.size)
+      if(x==@players.index(p))
+        if(@players.index(p)==@players.size-1)
+          x=0
+        else
+          x=x+1
+        end
+      end
+      p.setEnemy(@players[x])
+    end
   end
   
-  public
-  def developCombat()
+  
+  def developCombat
+    retorno = @currentPlayer.combat(@currentMonster)
+    @dealer.giveMonsterBack(@currentMonster)
+    return retorno
   end
   
   def discardVisibleTreasures(treasures)
+    treasures.each do |t|
+      @currentPlayer.discardVisibleTreasure(t)
+    end
   end
   
   def discardHiddenTreasures(treasures)
+    treasures.each do |t|
+      @currentPlayer.discardHiddenTreasure(t)
+    end
   end
   
   def makeTreasuresVisible(treasures)
+    treasures.each do |t|
+      @currentPlayer.makeTreasureVisible(t)
+    end
   end
   
   def initGame(players)
+    @players = Array.new
+    @dealer = CardDealer.instance
+    initPlayers(players) 
+    setEnemies
+    @dealer.initCards
+    nextTurn
   end
   
-  def getCurrentPlayer()
+  def getCurrentPlayer
+    return @currentPlayer
   end
   
-  def getCurrentMonster()
+  def getCurrentMonster
+    return @currentMonster
   end
   
-  def nextTurn()
+  def nextTurn
+    stateOk = nextTurnIsAllowed
+    if(stateOk)
+      @currentMonster = @dealer.nextMonster
+      @currentPlayer = nextPlayer
+      dead = @currentPlayer.isDead
+      if(dead)
+        @currentPlayer.initTreasures
+      end
+    end
   end
   
   def endOfGame(result)
+    if result == WINGAME
+      return true
+    else
+      return false
+    end
   end
+  
+  private_class_method :new 
+  private :initPlayers, :nextPlayer, :nextTurnIsAllowed, :setEnemies
 end

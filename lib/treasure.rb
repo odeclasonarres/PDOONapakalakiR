@@ -22,4 +22,9 @@ class Treasure
     @type
   end
   
+  def to_s
+    return "#{@name}  #{@bonus}  #{@type}"
+  end
+ 
+  
 end
