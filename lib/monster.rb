@@ -5,6 +5,8 @@
 require_relative 'prize'
 require_relative 'bad_consequence'
 
+
+
 class Monster
   attr_reader :name, :combatLevel, :prize, :badConsequence
   def initialize(n,l, b,p)
@@ -39,3 +41,4 @@ class Monster
      \n Mal rollo=#{@badConsequence.to_S} }"
   end
 end
+

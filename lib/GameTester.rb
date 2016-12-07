@@ -16,6 +16,7 @@ require_relative 'player'
 require_relative 'combat_result'
 require_relative 'card_dealer'
 
+
 module Test
 
 class GameTester

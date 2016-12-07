@@ -5,6 +5,7 @@
 #encoding utf-8
 require_relative 'player'
 
+
 class BadConsequence
   
   
@@ -130,3 +131,4 @@ class BadConsequence
   private_class_method :new 
   private :treasureToTreasureKind, :adjustSpecific
 end
+

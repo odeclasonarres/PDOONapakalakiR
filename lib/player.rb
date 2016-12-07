@@ -5,6 +5,10 @@ require_relative 'treasure_kind'
 require_relative 'combat_result'
 require_relative 'monster'
 require_relative 'treasure'
+
+
+  
+
 class Player
   
 
@@ -339,3 +343,5 @@ class Player
   
   private :haveStolen, :canYouGiveMeATreasure, :giveMeATreasure, :dieIfNoTreasures, :howManyVisibleTreasures, :bringToLife, :getCombatLevel, :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible
 end
+
+

@@ -2,13 +2,17 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-require 'singleton'
+
 require_relative 'treasure'
 require_relative 'bad_consequence'
 require_relative 'monster'
 require_relative 'player'
 require_relative 'combat_result'
 require_relative 'card_dealer'
+
+
+  
+require 'singleton'
 
 class Napakalaki
   include Singleton
@@ -138,3 +142,4 @@ class Napakalaki
   private_class_method :new 
   private :initPlayers, :nextPlayer, :nextTurnIsAllowed, :setEnemies
 end
+
