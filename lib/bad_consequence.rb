@@ -93,7 +93,7 @@ class BadConsequence
     tB.each do |tipo|
       x=tJ.index(tipo)
       if(x>=0)
-        retorno << tJ.pop(x) 
+        retorno << tJ.delete_at(x) 
       end
     end
     return retorno

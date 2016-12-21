@@ -180,7 +180,8 @@ class Player
   
   def combat(m)
     myLevel = getCombatLevel
-    monsterLevel = m.combatLevel   
+    m.name
+    monsterLevel = m.combatLevel  
     if(!canISteal)
       dice = Dice.instance
       number = dice.nextNumber
@@ -216,7 +217,7 @@ class Player
   
   def discardVisibleTreasure(t)
     if(!@visibleTreasures.empty?)
-      @visibleTreasures.pop(t)
+      @visibleTreasures.delete(t)
     end
     if(@pendingBadConsequence != nil && !@pendingBadConsequence.empty?)
       @pendingBadConsequence.substracVisibleTreasure(t)
@@ -297,8 +298,7 @@ class Player
   def giveMeATreasure
     x = rand(@hiddenTreasures.size)
     t = @hiddenTreasures[x]
-    @hiddenTreasures.delete_at(x)
-    return t
+    @hiddenTreasures.delete(t)
   end
   
   

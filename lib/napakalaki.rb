@@ -54,7 +54,7 @@ class Napakalaki
   
   
   def nextTurnIsAllowed
-    if @currentPlayer == nil then
+    if @currentPlayer == nil 
       allowed = true
     else
       allowed = @currentPlayer.validState

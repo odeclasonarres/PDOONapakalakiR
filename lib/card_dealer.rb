@@ -161,20 +161,20 @@ class CardDealer
 
   def nextTreasure
     if(@unusedTreasures.empty?)
-      @unusedTreasures=@usedTreasures
+      @unusedTreasures<<@usedTreasures
       shuffleTreasures
       @usedTreasures.clear
     end
-    return @unusedTreasures.take(1)
+    return @unusedTreasures.pop
   end
   
   def nextMonster
     if(@unusedMonsters.empty?)
-      @unusedMonsters=@usedMonsters
+      @unusedMonsters<<@usedMonsters
       shuffleTreasures
       @usedMonsters.clear
     end
-    return @unusedMonsters.take(1)
+    return @unusedMonsters.pop
   end
   
   def giveTreasureBack(t)
