@@ -11,7 +11,7 @@ require_relative 'treasure'
 class CardDealer
   include Singleton
   
-  attr_reader :usedTreasures, :unusedTreasures, :unusedMonsters, :usedMonsters
+  attr_reader :usedTreasures, :unusedTreasures, :unusedMonsters, :usedMonsters, :unusedCultist
   def initialize
   end
   
@@ -150,6 +150,10 @@ class CardDealer
     @unusedMonsters<<(Monster.new("Bicefalo", 21,bad, prize))
   end
   
+  def initCultistCardDeck
+    @unusedCultist=Array.new
+  end
+  
   def shuffleTreasures
     @unusedTreasures.shuffle
   end
@@ -158,7 +162,9 @@ class CardDealer
     @unusedMonsters.shuffle
   end
       
-
+  def shuffleCultist
+    @unusedCultist.shuffle
+  end
   def nextTreasure
     if(@unusedTreasures.empty?)
       @unusedTreasures<<@usedTreasures
@@ -175,6 +181,10 @@ class CardDealer
       @usedMonsters.clear
     end
     return @unusedMonsters.pop
+  end
+  
+  def nextCultist
+    return @unusedCultist.pop 
   end
   
   def giveTreasureBack(t)

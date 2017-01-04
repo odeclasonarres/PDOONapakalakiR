@@ -337,6 +337,14 @@ class Player
     ## end
   end 
   
+  def getOponentLevel(m)
+    
+  end
+  
+  def shouldConvert
+    
+  end
+  
   def to_s
     "Nombre= #{@name} Nivel= #{@level} "
   end

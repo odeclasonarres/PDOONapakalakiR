@@ -9,11 +9,14 @@ require_relative 'bad_consequence'
 
 class Monster
   attr_reader :name, :combatLevel, :prize, :badConsequence
-  def initialize(n,l, b,p)
+    
+    @levelChangeAgainstCultistPlayer=0
+  def initialize(n,l, b,p, lC)
     @name=n
     @combatLevel=l
     @badConsequence=b
     @prize=p
+    @levelChangeAgainstCultistPlayer=lC
   end
   
   def getName
@@ -34,6 +37,10 @@ class Monster
   
   def getTreasuresGained
     @prize.getTreasures
+  end
+  
+  def getCombatLevelAgainstCultistPlayer
+    
   end
   
   def to_s
