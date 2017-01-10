@@ -14,6 +14,8 @@ module NapakalakiGame
     def nextNumber
       return 1+rand(6)
     end
+    
+    private_class_method :new 
   end
 
 end

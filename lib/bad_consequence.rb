@@ -142,7 +142,7 @@ module NapakalakiGame
     end
 
     private_class_method :new 
-    private :treasureToTreasureKind, :adjustSpecific
+    private :treasureToTreasureKind, :adjustSpecific, :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death
   end
 
 end
