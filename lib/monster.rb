@@ -11,7 +11,7 @@ class Monster
   attr_reader :name, :combatLevel, :prize, :badConsequence
     
     @levelChangeAgainstCultistPlayer=0
-  def initialize(n,l, b,p, lC)
+  def initialize(n,l, b,p, lC=0)
     @name=n
     @combatLevel=l
     @badConsequence=b
