@@ -2,11 +2,15 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-class Cultist
-  attr_reader :gainedLevels
-  
-  def initialize(name,gainedLevels)
-    @name=name
-    @gainedLevels=gainedLevels
+module NapakalakiGame
+
+  class Cultist
+    attr_reader :gainedLevels
+
+    def initialize(name,gainedLevels)
+      @name=name
+      @gainedLevels=gainedLevels
+    end
   end
+
 end

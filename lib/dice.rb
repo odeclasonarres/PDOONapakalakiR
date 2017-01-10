@@ -2,15 +2,18 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+module NapakalakiGame
 
-require 'singleton'
-class Dice
-  include Singleton
-  def initialize
+  require 'singleton'
+
+  class Dice
+    include Singleton
+    def initialize
+    end
+
+    def nextNumber
+      return 1+rand(6)
+    end
   end
-  
-  def nextNumber
-    return 1+rand(6)
-  end
+
 end
-
