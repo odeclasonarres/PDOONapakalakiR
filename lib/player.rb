@@ -114,7 +114,7 @@ module NapakalakiGame
           if(tv.getType == TreasureKind::ONEHAND)
             x = x+1
           end
-          if(cont ==2)
+          if(x ==2)
             return false
           end
         end
@@ -145,22 +145,8 @@ module NapakalakiGame
 
 
     def dieIfNoTreasures
-      @comprobador = false
-      for i in @hiddenTreasures.length
-        if(@hiddenTreasures.at(i)!=nil)
-          comprobador = true
-        end
-      end
-      for i in @visibleTreasures
-        if(@visibleTreasures.at(i)!=nil)
-          comprobador = true
-        end
-      end
-
-      if(comprobador)
-        @dead = false
-      else
-        @dead = true
+      if(@hiddenTreasures.empty? && @visibleTreasures.empty?)
+        @dead=true
       end
     end  
 
@@ -221,7 +207,7 @@ module NapakalakiGame
       if(!@visibleTreasures.empty?)
         @visibleTreasures.delete(t)
       end
-      if(@pendingBadConsequence != nil && !@pendingBadConsequence.empty?)
+      if(@pendingBadConsequence != nil && !@pendingBadConsequence.isEmpty)
         @pendingBadConsequence.substracVisibleTreasure(t)
       end
       dieIfNoTreasures
@@ -235,7 +221,7 @@ module NapakalakiGame
         @hiddenTreasures.pop(t)
       end
 
-      if(@pendingBadConsequence != nil && !@pendingBadConsequence.empty?)
+      if(@pendingBadConsequence != nil && !@pendingBadConsequence.isEmpty)
         @pendingBadConsequence.substracHiddenVisibleTreasure(t)
       end
       dieIfNoTreasures

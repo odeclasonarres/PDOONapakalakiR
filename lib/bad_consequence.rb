@@ -48,7 +48,7 @@ module NapakalakiGame
 
     def isEmpty
       retorno=false
-      if(@nVisibleTreasures==0 && @nHiddenTreasures==0 && @specificHiddenTreasures==nil && @specificVisibleTreasures==nil)
+      if(@nVisibleTreasures==0 && @nHiddenTreasures==0 && @specificHiddenTreasures==Array.new && @specificVisibleTreasures== Array.new )
         retorno=true
       end
       return retorno
@@ -102,6 +102,7 @@ module NapakalakiGame
 
     def adjustSpecific(tB,tJ)
       retorno = Array.new 
+      x = 0
       arrayMalRollo = Array.new(tB)
       arrayMalRollo.each do |tipo|
         x=tJ.index(tipo)

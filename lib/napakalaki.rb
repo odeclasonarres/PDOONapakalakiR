@@ -38,19 +38,23 @@ module NapakalakiGame
 
       if (@currentPlayer == nil) then  
         next_index = rand(total_players)    
-      else           
-        current_player_index = @players.index(@currentPlayer)   
-        if (current_player_index == total_players) then
-          next_index = 0
-        else
-          next_index = current_player_index + 1
-        end
+      else    
+ 
+        x = @players.index(@currentPlayer)  
+        x = (x+1)%@players.size
+        y = 2
+        
+        ## if (current_player_index == total_players) then
+        ##  next_index = 0
+        ## else
+        ##  next_index = current_player_index + 1
+        ## end
 
       end
 
-      @currentPlayer = @players.at(next_index)
+      ## @currentPlayer = @players.at(next_index)
 
-      return @currentPlayer
+      return @players.at(next_index)
     end
 
 
@@ -124,8 +128,9 @@ module NapakalakiGame
       stateOk = nextTurnIsAllowed
       if(stateOk)
         @currentMonster = @dealer.nextMonster
+        @currentPlayer = Player.new("asdf")
         @currentPlayer = nextPlayer
-        dead = @currentPlayer.isDead
+        dead =  @currentPlayer.isDead
         if(dead)
           @currentPlayer.initTreasures
         end
