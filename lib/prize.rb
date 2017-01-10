@@ -4,6 +4,7 @@
 
 #encoding utf-8
 
+## hola
 
 class Prize
   attr_reader :treasures, :levels
