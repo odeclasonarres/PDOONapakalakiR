@@ -203,6 +203,9 @@ module NapakalakiGame
       shuffleTreasures
       shuffleMonsters
     end
+    
+    private_class_method :new 
+    private :initTreasureCardDeck, :initMonsterCardDeck, :initCultistCardDeck, :shuffleTreasures, :shuffleMonster, :shuffleCulstist
   end
 
 end

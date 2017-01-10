@@ -11,6 +11,8 @@ module NapakalakiGame
       @name=name
       @gainedLevels=gainedLevels
     end
+    
+    private :name, :gainedLevels
   end
 
 end

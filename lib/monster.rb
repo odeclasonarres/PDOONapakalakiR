@@ -47,6 +47,8 @@ module NapakalakiGame
       return "Monster{ nombre=  #{@name} ; \n nivel = #{@combatLevel}; \n Premio=#{@prize.to_S};
        \n Mal rollo=#{@badConsequence.to_S} }"
     end
+    
+    private :name, :combatLevel, :levelChangeAgainstCultistPlayer
   end
 
 end

@@ -24,6 +24,8 @@ module NapakalakiGame
     def to_S
       "Tesoros ganados: #{@treasures} \n Niveles ganados: #{@level}"
     end
+    
+    private :treasures, :levels
   end
 
 end

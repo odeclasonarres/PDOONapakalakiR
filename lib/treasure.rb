@@ -28,7 +28,7 @@ module NapakalakiGame
       return "#{@name}  #{@bonus}  #{@type}"
     end
 
-
+    private :name, :bonus
   end
 
 end
