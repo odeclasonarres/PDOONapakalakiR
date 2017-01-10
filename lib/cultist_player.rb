@@ -40,6 +40,8 @@ module NapakalakiGame
       return @@totalCultistPlayers
     end
 
+    private :giveMeATreasure, :canYouGiveMeATreasure
+    protected :getCombatLevel, :getOponentLevel, :shouldConvert
   end
 
 end
