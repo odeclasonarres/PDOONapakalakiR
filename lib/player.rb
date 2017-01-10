@@ -11,7 +11,7 @@ require_relative 'treasure'
 
 class Player
   
- ## Prueba
+
   attr_accessor :canISteal, :enemy, :name, :level, :dead, :pendingBadConsequence
   
   @@MAXLEVEL=10
