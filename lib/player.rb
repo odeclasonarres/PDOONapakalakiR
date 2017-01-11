@@ -6,6 +6,8 @@ require_relative 'combat_result'
 require_relative 'monster'
 require_relative 'treasure'
 require_relative 'dice'
+require_relative 'bad_consequence'
+require_relative 'numericBadConsequence'
 
 module NapakalakiGame
 
@@ -15,7 +17,7 @@ module NapakalakiGame
     attr_accessor :canISteal, :enemy, :name, :level, :dead, :pendingBadConsequence, :level, :hiddenTreasures, :visibleTreasures
 
     @@MAXLEVEL=10
-    def initialize(name,l=1,ht=Array.new,vt=Array.new,d=true,cI=true, pending=BadConsequence.newLevelNumberOfTreasures("",0,0,0), enemy=nil)
+    def initialize(name,l=1,ht=Array.new,vt=Array.new,d=true,cI=true, pending=NumericBadConsequence.new("",0,0,0), enemy=nil)
       @name=name
       @level = l
       @hiddenTreasures = ht
