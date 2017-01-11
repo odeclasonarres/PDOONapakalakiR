@@ -3,7 +3,13 @@
 # and open the template in the editor.
 
 module NapakalakiGame
-  class DeathBadConsequence < BadConsequence
-    
+  class DeathBadConsequence < NumericBadConsequence
+    def initialize
+      super(aText,Player.MAXLEVEL,BadConsequence.MAXTREASURES,BadConsequence.MAXTREASURES)
+    end
+  end
+  
+  def to_S
+     "\n death=#{true};"
   end
 end
