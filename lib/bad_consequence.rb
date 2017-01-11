@@ -12,7 +12,7 @@ module NapakalakiGame
 
     @@MAXTREASURES=4
 
-    attr_reader :MAXTREASURES, :text, :levels, :death
+    attr_reader  :text, :levels, :death
     def initialize(aText, someLevels=0) 
       @text = aText
       @levels = someLevels
@@ -25,12 +25,45 @@ module NapakalakiGame
     def getLevels
       @levels
     end  
+    
+    def getMAXTREASURES
+      @@MAXTREASURES
+    end
+    
+    def getNVisibleTreasures
+      raise NotImplementedError.new
+    end
+  
+    def getNHiddenTreasures
+      raise NotImplementedError.new
+    end
+  
+    def getSpecificVisibleTreasures
+     raise NotImplementedError.new
+    end
+  
+    def getSpecificHiddenTreasures
+     raise NotImplementedError.new
+    end
 
+    def substracVisibleTreasure(t)
+      raise NotImplementedError.new
+    end
+  
+
+    def substracHiddenTreasure(t)
+      raise NotImplementedError.new
+    end
+  
+    def adjustToFitTreasureLists(v,h)
+      raise NotImplementedError.new
+    end
+   
     def to_S
       "BadConsequence{ text= #{@text}; \n levels=#{@levels};  "
     end
 
-    protected :getLevels, :getText
+    protected :getLevels, :getText, :getMAXTREASURES
     
   end
 

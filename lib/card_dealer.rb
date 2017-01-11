@@ -7,6 +7,10 @@ require "singleton"
 require_relative 'treasure_kind'
 require_relative 'monster'
 require_relative 'treasure'
+require_relative 'specificBadConsequence.rb'
+require_relative 'deathBadConsequence.rb'
+require_relative 'numericBadConsequence.rb'
+require_relative 'cultist.rb'
 
 module NapakalakiGame
 
@@ -161,7 +165,7 @@ module NapakalakiGame
       prize = Prize.new(2,1)
       @unusedMonsters<<(Monster.newLevelCultist("Testigos oculares", 6, prize, bad, 2))
 
-      bad = DeathBadConsequence.new("Hoy no es tu dia de suerte. Mueres", true)
+      bad = DeathBadConsequence.new("Hoy no es tu dia de suerte. Mueres")
       prize = Prize.new(2,5)
       @unusedMonsters<<(Monster.newLevelCultist("El gran cthulhu", 20, prize, bad, 4))
 
@@ -170,7 +174,7 @@ module NapakalakiGame
       @unusedMonsters<<(Monster.newLevelCultist("Serpiente politico",8,prize, bad, -2))
 
       bad = SpecificBadConsequence.new("Pierdes tu caso y tu armadura visible. Pierdes tus manos ocultas", 1,
-        [TreasureKind::HELMET,TreasureKind::ARMOR],[TreasureKind::BOTHHAND,TreasureKind::ONEHAND])
+        [TreasureKind::HELMET,TreasureKind::ARMOR],[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND])
       prize = Prize.new(1,1)
       @unusedMonsters<<(Monster.newLevelCultist("Felpuggoth",2, prize, bad, 5))
 
@@ -182,7 +186,7 @@ module NapakalakiGame
       prize = Prize.new(1,1)
       @unusedMonsters<<(Monster.newLevelCultist("Lolitagooth", 2, prize, bad, 3))
       
-      shuffleMonster
+      shuffleMonsters
     end
 
     def initCultistCardDeck

@@ -347,7 +347,8 @@ module NapakalakiGame
     end
 
     def shouldConvert
-        return if @dice.nextNumber==6
+        dice = Dice.instance
+        return if dice.nextNumber==6
     end
     
     def getEnemy

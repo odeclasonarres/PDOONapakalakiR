@@ -2,7 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-require_relative 'bad_consequence'
+require_relative 'bad_consequence.rb'
 
 module NapakalakiGame
   class NumericBadConsequence < BadConsequence
@@ -47,10 +47,17 @@ module NapakalakiGame
       
     end
     
+    def getMAXTREASURES
+      super
+    end
+    
     def to_S
       super
       "\n nVisibleTreasures= #{@nVisibleTreasures}, 
       \n nHiddenTreasures=#{@nHiddenTreasures};"
     end
+    
+    
+    protected :getMAXTREASURES
   end
 end

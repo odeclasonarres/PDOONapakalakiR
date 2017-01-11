@@ -5,7 +5,7 @@
 module NapakalakiGame
 
   class Cultist
-    attr_reader :gainedLevels
+    attr_reader :gainedLevels, :name
 
     def initialize(name,gainedLevels)
       @name=name
