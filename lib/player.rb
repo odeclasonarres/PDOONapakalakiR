@@ -12,16 +12,22 @@ module NapakalakiGame
   class Player
 
 
-    attr_accessor :canISteal, :enemy, :name, :level, :dead, :pendingBadConsequence
+    attr_accessor :canISteal, :enemy, :name, :level, :dead, :pendingBadConsequence, :level, :hiddenTreasures, :visibleTreasures
 
     @@MAXLEVEL=10
-    def initialize(name)
+    def initialize(name,l=1,ht=Array.new,vt=Array.new,d=true,cI=true, pending=BadConsequence.newLevelNumberOfTreasures("",0,0,0), enemy=nil)
       @name=name
-      @level = 1
-      @hiddenTreasures = Array.new
-      @visibleTreasures = Array.new
-      @dead=true
-      @canISteal=true
+      @level = l
+      @hiddenTreasures = ht
+      @visibleTreasures = vt
+      @dead=d
+      @canISteal=cI
+      @pendigBadConsequence=pending
+      @enemy=enemy
+    end
+    
+    def self.newCopia(p)
+      new(p.name,p.level,p.hiddenTreasures,p.visibleTreasures,p.dead,p.canISteal, p.pendingBadConsequence, p.enemy)
     end
 
     def self.MAXLEVEL

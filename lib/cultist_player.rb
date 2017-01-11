@@ -11,7 +11,7 @@ module NapakalakiGame
     attr_accessor :totalCultistPlayers, :myCultistCard
 
     def initialize(p, c)
-      super(Player.(p.name,p.dead,p.pendingBadConsequence,p.level,p.nLevels,p.visibleTreasures,p.hiddenTreasures)) 
+      super(p) 
       @myCultistCard=c
       @@totalCultistPlayers=@@totalCultistPlayers+1
     end
