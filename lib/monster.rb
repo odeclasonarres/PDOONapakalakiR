@@ -57,7 +57,7 @@ module NapakalakiGame
     end
     
     private_class_method :new
-    private :name, :combatLevel, :levelChangeAgainstCultistPlayer
+    private :name, :combatLevel
   end
 
 end

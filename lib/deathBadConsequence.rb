@@ -4,7 +4,7 @@
 
 module NapakalakiGame
   class DeathBadConsequence < NumericBadConsequence
-    def initialize
+    def initialize(aText)
       super(aText,Player.MAXLEVEL,BadConsequence.MAXTREASURES,BadConsequence.MAXTREASURES)
     end
   end

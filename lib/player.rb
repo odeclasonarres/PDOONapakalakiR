@@ -356,7 +356,7 @@ module NapakalakiGame
       "Nombre= #{@name} Nivel= #{@level} "
     end
 
-    protected :getCombatLevel, :canYouGiveMeATreasure, getEnemy
+    protected :getCombatLevel, :canYouGiveMeATreasure, :getEnemy
     private :haveStolen, :giveMeATreasure, :dieIfNoTreasures, :howManyVisibleTreasures, :bringToLife,  :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible
   end
 
