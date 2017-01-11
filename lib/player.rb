@@ -336,7 +336,7 @@ module NapakalakiGame
     end
 
     def shouldConvert
-
+        
     end
 
     def to_s

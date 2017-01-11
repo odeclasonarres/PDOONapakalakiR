@@ -48,7 +48,7 @@ module NapakalakiGame
     end
 
     def getCombatLevelAgainstCultistPlayer
-
+      @combatLevel+@levelChangeAgainstCultistPlayer
     end
 
     def to_s
