@@ -336,7 +336,7 @@ module NapakalakiGame
     end
 
     def shouldConvert
-        
+        return if @dice.nextNumber==6
     end
 
     def to_s
