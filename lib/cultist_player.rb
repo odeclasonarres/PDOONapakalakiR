@@ -17,6 +17,7 @@ module NapakalakiGame
     end
 
     def getCombatLevel
+      #ACABAR tiene que truncar los decimales
       super+(super*0.7)+(@@totalCultistPlayers*@myCultistCard.gainedLevels)
     end
 
