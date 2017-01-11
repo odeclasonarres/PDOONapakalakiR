@@ -12,7 +12,8 @@ module NapakalakiGame
       @treasures=t
       @levels=l
     end
-
+    
+    public
     def getTreasures
       @treasures
     end
@@ -25,7 +26,7 @@ module NapakalakiGame
       "Tesoros ganados: #{@treasures} \n Niveles ganados: #{@level}"
     end
     
-    private :treasures, :levels
+    #private :treasures, :levels
   end
 
 end

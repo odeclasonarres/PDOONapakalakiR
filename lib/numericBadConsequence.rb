@@ -50,6 +50,14 @@ module NapakalakiGame
     def getMAXTREASURES
       super
     end
+    public
+    def getText
+      super
+    end
+
+    def getLevels
+      super
+    end
     
     def to_S
       super

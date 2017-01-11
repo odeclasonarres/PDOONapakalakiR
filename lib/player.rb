@@ -7,7 +7,9 @@ require_relative 'monster'
 require_relative 'treasure'
 require_relative 'dice'
 require_relative 'bad_consequence'
-require_relative 'numericBadConsequence'
+require_relative 'specificBadConsequence.rb'
+require_relative 'deathBadConsequence.rb'
+require_relative 'numericBadConsequence.rb'
 
 module NapakalakiGame
 

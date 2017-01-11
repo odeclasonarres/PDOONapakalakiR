@@ -159,32 +159,32 @@ module NapakalakiGame
       #SECTARIOS
       bad=SpecificBadConsequence.new("Pierdes una mano visible",1,[TreasureKind::ONEHAND],[])
       prize=Prize.new(3,1) 
-      @unusedMonsters<<(Monster.newLevelCultist("El mal indecible impronunciable",10,prize,bad,-2))
+      @unusedMonsters<<(Monster.newLevelCultist("El mal indecible impronunciable",10,bad,prize,-2))
 
       bad = NumericBadConsequence.new("Pierdes tus tesores visibles jajaja",1,5,0)
       prize = Prize.new(2,1)
-      @unusedMonsters<<(Monster.newLevelCultist("Testigos oculares", 6, prize, bad, 2))
+      @unusedMonsters<<(Monster.newLevelCultist("Testigos oculares", 6,bad,prize, 2))
 
       bad = DeathBadConsequence.new("Hoy no es tu dia de suerte. Mueres")
       prize = Prize.new(2,5)
-      @unusedMonsters<<(Monster.newLevelCultist("El gran cthulhu", 20, prize, bad, 4))
+      @unusedMonsters<<(Monster.newLevelCultist("El gran cthulhu", 20, bad,prize, 4))
 
       bad = NumericBadConsequence.new("Tu gorbierno te recorta 2 niveles", 2, 0, 0)
       prize = Prize.new(2,1)
-      @unusedMonsters<<(Monster.newLevelCultist("Serpiente politico",8,prize, bad, -2))
+      @unusedMonsters<<(Monster.newLevelCultist("Serpiente politico",8,bad,prize, -2))
 
       bad = SpecificBadConsequence.new("Pierdes tu caso y tu armadura visible. Pierdes tus manos ocultas", 1,
         [TreasureKind::HELMET,TreasureKind::ARMOR],[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND])
       prize = Prize.new(1,1)
-      @unusedMonsters<<(Monster.newLevelCultist("Felpuggoth",2, prize, bad, 5))
+      @unusedMonsters<<(Monster.newLevelCultist("Felpuggoth",2,bad,prize, 5))
 
       bad = NumericBadConsequence.new("Pierdes 2 niveles", 2, 0, 0)
       prize = Prize.new(4,2)
-      @unusedMonsters<<(Monster.newLevelCultist("Shoggoth", 16, prize, bad, -4))
+      @unusedMonsters<<(Monster.newLevelCultist("Shoggoth", 16, bad,prize, -4))
 
       bad = NumericBadConsequence.new("Pintalabios negro. Pierdes 2 niveles", 2, 0, 0)
       prize = Prize.new(1,1)
-      @unusedMonsters<<(Monster.newLevelCultist("Lolitagooth", 2, prize, bad, 3))
+      @unusedMonsters<<(Monster.newLevelCultist("Lolitagooth", 2,bad,prize, 3))
       
       shuffleMonsters
     end

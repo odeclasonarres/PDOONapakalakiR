@@ -2,6 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 require_relative 'bad_consequence.rb'
+require_relative 'numericBadConsequence.rb'
 
 module NapakalakiGame
   class DeathBadConsequence < NumericBadConsequence
@@ -11,6 +12,15 @@ module NapakalakiGame
   end
   
   def getMAXTREASURES
+    super
+  end
+  
+  public
+  def getText
+      super
+  end
+
+  def getLevels
     super
   end
   

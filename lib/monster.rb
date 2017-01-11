@@ -2,8 +2,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 #encoding utf-8
-require_relative 'prize'
-require_relative 'bad_consequence'
+require_relative 'prize.rb'
+require_relative 'bad_consequence.rb'
 
 module NapakalakiGame
 
@@ -19,12 +19,12 @@ module NapakalakiGame
       @levelChangeAgainstCultistPlayer=lC
     end
 
-    def self.newBasico(n,l,p,b)
-      new(n,l,p,b,0)
+    def self.newBasico(n,l,b,p)
+      new(n,l,b,p,0)
     end
   
-    def self.newLevelCultist(n, l, p, b, level)
-      new(n, l, p, b, level)
+    def self.newLevelCultist(n, l, b, p, level)
+      new(n, l, b, p, level)
     end
     
     def getName
@@ -40,11 +40,11 @@ module NapakalakiGame
     end
 
     def getLevelsGained
-      @prize.getLevels 
+      @prize.levels 
     end
 
     def getTreasuresGained
-      @prize.getTreasures
+      @prize.treasures
     end
 
     def getCombatLevelAgainstCultistPlayer
@@ -56,8 +56,8 @@ module NapakalakiGame
        \n Mal rollo=#{@badConsequence.to_S} }"
     end
     
-    private_class_method :new
-    private :name, :combatLevel
+    #private_class_method :new
+    #private :name, :combatLevel
   end
 
 end
