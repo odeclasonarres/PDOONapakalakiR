@@ -11,7 +11,7 @@ module NapakalakiGame
 
   class Player
 
-
+    
     attr_accessor :canISteal, :enemy, :name, :level, :dead, :pendingBadConsequence
 
     @@MAXLEVEL=10
@@ -77,7 +77,7 @@ module NapakalakiGame
       nTreasures = m.getTreasuresGained
       if(nTreasures>0)
         dealer = CardDealer.instance
-        for i in nTreasures
+        for i in 0..nTreasures
           t=dealer.nextTreasure
           @hiddenTreasures << t
         end
@@ -147,6 +147,7 @@ module NapakalakiGame
     def dieIfNoTreasures
       if(@hiddenTreasures.empty? && @visibleTreasures.empty?)
         @dead=true
+        @pendingBadConsequence=nil
       end
     end  
 
@@ -168,8 +169,8 @@ module NapakalakiGame
 
     def combat(m)
       myLevel = getCombatLevel
-      m.name
-      monsterLevel = m.combatLevel  
+      m.getName
+      monsterLevel = m.getCombatLevel  
       if(!canISteal)
         dice = Dice.instance
         number = dice.nextNumber
@@ -181,7 +182,7 @@ module NapakalakiGame
 
       if(myLevel>monsterLevel)
         applyPrize(m)
-        if(level>=MAXLEVEL)
+        if(level>=@@MAXLEVEL)
           cr = CombatResult::WINGAME
         else
           cr = CombatResult::WIN
@@ -218,11 +219,11 @@ module NapakalakiGame
 
     def discardHiddenTreasure(t)
       if(!@hiddenTreasures.empty?)
-        @hiddenTreasures.pop(t)
+        @hiddenTreasures.delete(t)
       end
 
       if(@pendingBadConsequence != nil && !@pendingBadConsequence.isEmpty)
-        @pendingBadConsequence.substracHiddenVisibleTreasure(t)
+        @pendingBadConsequence.substracHiddenTreasure(t)
       end
       dieIfNoTreasures
       dealer = CardDealer.instance
@@ -235,6 +236,11 @@ module NapakalakiGame
      ## if(@pendingBadConsequence.isEmpty && @hiddenTreasures<=4)
      ##   retorno=true
      ## end
+     if(@pendingBadConsequence!=nil)
+        puts @pendingBadConsequence.to_S
+        puts (@pendingBadConsequence.isEmpty && @hiddenTreasures.size <=4)
+     end
+     
       return @pendingBadConsequence == nil || (@pendingBadConsequence.isEmpty && @hiddenTreasures.size <=4)
     end
 
@@ -337,8 +343,8 @@ module NapakalakiGame
       "Nombre= #{@name} Nivel= #{@level} "
     end
 
-    protected :getCombatLevel
-    private :haveStolen, :canYouGiveMeATreasure, :giveMeATreasure, :dieIfNoTreasures, :howManyVisibleTreasures, :bringToLife,  :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible
+    protected :getCombatLevel, :canYouGiveMeATreasure
+    private :haveStolen, :giveMeATreasure, :dieIfNoTreasures, :howManyVisibleTreasures, :bringToLife,  :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible
   end
 
 end

@@ -169,7 +169,11 @@ module NapakalakiGame
     end
     def nextTreasure
       if(@unusedTreasures.empty?)
-        @unusedTreasures<<@usedTreasures
+        ##@unusedTreasures<<@usedTreasures
+        @usedTreasures.each do |t|
+          @unusedTreasures << @usedTreasures.delete(t)
+        end
+        
         shuffleTreasures
         @usedTreasures.clear
       end
@@ -178,7 +182,11 @@ module NapakalakiGame
 
     def nextMonster
       if(@unusedMonsters.empty?)
-        @unusedMonsters<<@usedMonsters
+        ##@unusedMonsters<<@usedMonsters
+        @usedMonsters.each do |m|
+          @unusedMonsters << @usedMonsters.delete(m)
+        end
+        
         shuffleTreasures
         @usedMonsters.clear
       end
@@ -205,7 +213,7 @@ module NapakalakiGame
     end
     
     private_class_method :new 
-    private :initTreasureCardDeck, :initMonsterCardDeck, :initCultistCardDeck, :shuffleTreasures, :shuffleMonster, :shuffleCulstist
+    private :initTreasureCardDeck, :initMonsterCardDeck, :initCultistCardDeck, :shuffleTreasures, :shuffleMonsters, :shuffleCultist
   end
 
 end

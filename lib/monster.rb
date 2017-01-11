@@ -48,7 +48,7 @@ module NapakalakiGame
        \n Mal rollo=#{@badConsequence.to_S} }"
     end
     
-    private :name, :combatLevel, :levelChangeAgainstCultistPlayer
+    private :name, :combatLevel
   end
 
 end
