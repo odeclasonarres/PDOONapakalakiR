@@ -17,7 +17,7 @@ module NapakalakiGame
     end
 
     def getCombatLevel
-
+      super+(super*0.7)+(@@totalCultistPlayers*@myCultistCard.gainedLevels)
     end
 
     def getOponentLevel(m)
