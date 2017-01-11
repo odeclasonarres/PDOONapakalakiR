@@ -86,6 +86,18 @@ module NapakalakiGame
     def developCombat
       retorno = @currentPlayer.combat(@currentMonster)
       @dealer.giveMonsterBack(@currentMonster)
+      if(retorno==CombatResult::LOSEANDCONVERT)
+        carta = @dealer.nextCultist
+        cp = CultistPlayer.new(p,carta)
+        @players.each do |pla|
+          if(pla.enemy == @currentPlayer)
+            pla.setEnemy(cp)
+          end
+        end
+        ind = @players.index(@currentPlayer)
+        @players[ind] = cp
+        @currentPlayer = cp
+      end
       return retorno
     end
 

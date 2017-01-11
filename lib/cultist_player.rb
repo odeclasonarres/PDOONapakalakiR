@@ -8,33 +8,49 @@ module NapakalakiGame
 
     @@totalCultistPlayers=0
 
-    attr_accessor :totalCultistPlayers, :myCultistCard
+    attr_accessor  :myCultistCard
 
     def initialize(p, c)
-      super(p) 
+      newCopia(p)   ## Revisar
       @myCultistCard=c
       @@totalCultistPlayers=@@totalCultistPlayers+1
+    end
+    
+    def self.newCopia(p)
+      super(p)
     end
 
     def getCombatLevel
       #ACABAR tiene que truncar los decimales
-      super+(super*0.7)+(@@totalCultistPlayers*@myCultistCard.gainedLevels)
+      x = super+(super*0.7)+(@@totalCultistPlayers*@myCultistCard.gainedLevels)
+      return x.to_i #posible solucion
     end
 
     def getOponentLevel(m)
-
+      return m.getCombatLevelAgainstCultistPlayer
     end
 
     def shouldConvert
+      d = Dice.instance
+      if(d.nextNumber==6)
+        return true
+      end
       return false
     end
 
     def giveMeATreasure
-
+      if(canYouGiveMeATreasure)
+        tam = super.getEnemy.getVisibleTreasures.size
+        return super.getEnemy.getVisibleTreasures.delete(rand(tam))
+      end
+      return nil
     end
 
     def canYouGiveMeATreasure
-
+      if(super.getVisibleTreasures.size>0)
+        return true
+      end
+      return false
     end
 
     def self.getTotalCultistPlayers

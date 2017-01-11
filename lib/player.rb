@@ -175,8 +175,7 @@ module NapakalakiGame
 
     def combat(m)
       myLevel = getCombatLevel
-      m.getName
-      monsterLevel = m.getCombatLevel  
+      monsterLevel = getOponentLevel(m)  
       if(!canISteal)
         dice = Dice.instance
         number = dice.nextNumber
@@ -194,8 +193,12 @@ module NapakalakiGame
           cr = CombatResult::WIN
         end
       else
-        applyBadConsequence(m)
-        cr = CombatResult::LOSE
+        if(shouldConvert)
+          cr = CombatResult::LOSEANDCONVERT
+        else
+          applyBadConsequence(m)
+          cr = CombatResult::LOSE
+        end
       end
       return cr
     end
@@ -338,18 +341,22 @@ module NapakalakiGame
     end 
 
     def getOponentLevel(m)
-
+      return m.getCombatLevel
     end
 
     def shouldConvert
         return if @dice.nextNumber==6
+    end
+    
+    def getEnemy
+      return @enemy
     end
 
     def to_s
       "Nombre= #{@name} Nivel= #{@level} "
     end
 
-    protected :getCombatLevel, :canYouGiveMeATreasure
+    protected :getCombatLevel, :canYouGiveMeATreasure, getEnemy
     private :haveStolen, :giveMeATreasure, :dieIfNoTreasures, :howManyVisibleTreasures, :bringToLife,  :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible
   end
 
