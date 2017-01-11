@@ -48,7 +48,7 @@ module NapakalakiGame
 
     def isEmpty
       retorno=false
-      if(@nVisibleTreasures==0 && @nHiddenTreasures==0 && @specificHiddenTreasures==Array.new && @specificVisibleTreasures== Array.new )
+      if(@nVisibleTreasures==0 && @nHiddenTreasures==0 && @specificHiddenTreasures.size == 0 && @specificVisibleTreasures.size == 0 )
         retorno=true
       end
       return retorno
@@ -78,7 +78,7 @@ module NapakalakiGame
       if(@nHiddenTreasures > 0)
         @nHiddenTreasures = @nHiddenTreasures-1 
       end
-      if(!@specificHiddenTreasures.empty? && @specificHiddenTreasures.include?(t))
+      if(!@specificHiddenTreasures.empty? && @specificHiddenTreasures.include?(t.getType))
         @specificHiddenTreasures.each do |sv|
           if(sv == t.getType)
             @specificHiddenTreasures.delete(t.getType)
@@ -91,7 +91,7 @@ module NapakalakiGame
       if(@nVisibleTreasures > 0)
         @nVisibleTreasures = @nVisibleTreasures-1 
       end
-      if(!@specificVisibleTreasures.empty? && @specificVisibleTreasures.include?(t))
+      if(!@specificVisibleTreasures.empty? && @specificVisibleTreasures.include?(t.getType))
         @specificVisibleTreasures.each do |sv|
           if(sv == t.getType)
             @specificVisibleTreasures.delete(t.getType)

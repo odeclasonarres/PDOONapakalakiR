@@ -19,6 +19,14 @@ module NapakalakiGame
       @levelChangeAgainstCultistPlayer=lC
     end
 
+    def self.newBasico(n,l,p,b)
+      new(n,l,p,b,0)
+    end
+  
+    def self.newLevelCultist(n, l, p, b, level)
+      new(n, l, p, b, level)
+    end
+    
     def getName
       @name
     end
@@ -40,7 +48,7 @@ module NapakalakiGame
     end
 
     def getCombatLevelAgainstCultistPlayer
-
+      @combatLevel+@levelChangeAgainstCultistPlayer
     end
 
     def to_s
@@ -48,7 +56,8 @@ module NapakalakiGame
        \n Mal rollo=#{@badConsequence.to_S} }"
     end
     
-    private :name, :combatLevel
+    private_class_method :new
+    private :name, :combatLevel, :levelChangeAgainstCultistPlayer
   end
 
 end

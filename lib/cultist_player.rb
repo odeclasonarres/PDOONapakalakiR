@@ -11,13 +11,13 @@ module NapakalakiGame
     attr_accessor :totalCultistPlayers, :myCultistCard
 
     def initialize(p, c)
-      super(Player.(p.name,p.dead,p.pendingBadConsequence,p.level,p.nLevels,p.visibleTreasures,p.hiddenTreasures)) 
+      super(p) 
       @myCultistCard=c
       @@totalCultistPlayers=@@totalCultistPlayers+1
     end
 
     def getCombatLevel
-
+      super+(super*0.7)+(@@totalCultistPlayers*@myCultistCard.gainedLevels)
     end
 
     def getOponentLevel(m)
@@ -25,7 +25,7 @@ module NapakalakiGame
     end
 
     def shouldConvert
-
+      return false
     end
 
     def giveMeATreasure

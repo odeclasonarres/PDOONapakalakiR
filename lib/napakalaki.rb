@@ -34,27 +34,27 @@ module NapakalakiGame
 
 
     def nextPlayer
-      total_players = @players.length 
-
-      if (@currentPlayer == nil) then  
-        next_index = rand(total_players)    
+      total_players = @players.size 
+      x=0
+      if (@currentPlayer == nil)   
+        x = rand(total_players)    
       else    
- 
+        
         x = @players.index(@currentPlayer)  
         x = (x+1)%@players.size
-        y = 2
+        
         
         ## if (current_player_index == total_players) then
         ##  next_index = 0
         ## else
         ##  next_index = current_player_index + 1
         ## end
-
+        
       end
 
       ## @currentPlayer = @players.at(next_index)
-
-      return @players.at(next_index)
+      
+      return @players.at(x)
     end
 
 
@@ -110,6 +110,7 @@ module NapakalakiGame
     def initGame(players)
       @players = Array.new
       @dealer = CardDealer.instance
+      @currentPlayer = nil
       initPlayers(players) 
       setEnemies
       @dealer.initCards
@@ -126,15 +127,17 @@ module NapakalakiGame
 
     def nextTurn
       stateOk = nextTurnIsAllowed
+      puts stateOk
       if(stateOk)
         @currentMonster = @dealer.nextMonster
-        @currentPlayer = Player.new("asdf")
+        
         @currentPlayer = nextPlayer
         dead =  @currentPlayer.isDead
         if(dead)
           @currentPlayer.initTreasures
         end
       end
+      return stateOk
     end
 
     def endOfGame(result)
